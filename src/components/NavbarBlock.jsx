@@ -2,7 +2,9 @@ import React from 'react'
 
 function NavbarBlock () {
   return (
-    <div>NavbarBlock </div>
+    <>
+      <h3>11 Seven</h3>
+    </>
   )
 }
 

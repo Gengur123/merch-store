@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import BiographyBlock from "./components/BiographyBlock";
 import BuyRestockBlock from "./components/BuyRestockBlock";
 import CareerBlock from "./components/CareerBlock";
@@ -9,6 +9,20 @@ import NavbarBlock from "./components/NavbarBlock";
 
 
 function App () {
+
+  const [drinkCount, setDrinkCount] = useState(0)
+  const [chipCount, setChipCount] = useState(0)
+  const [hotDogCount, setHotDogCount] = useState(0)
+
+  function addOneDrink(){
+    setDrinkCount(drinkCount + 1)
+  }
+  function addOneChip(){
+    setChipCount(chipCount + 1)
+  }
+  function addOneHotDog(){
+    setHotDogCount(hotDogCount + 1)
+  }
   return (
     <>
       <NavbarBlock />
@@ -33,7 +47,7 @@ function App () {
         </div>
 
         <div class="column">
-          <MerchBlock />
+          <MerchBlock drinkCount={drinkCount} chipCount={chipCount} hotDogCount={hotDogCount} />
         </div>
 
         <div class="column">
@@ -47,7 +61,7 @@ function App () {
         </div>
 
         <div class="column">
-          <BuyRestockBlock />
+          <BuyRestockBlock  drinkCountAddOne={addOneDrink} chipCountAddOne={addOneChip} hotDogCountAddOne={addOneHotDog} />
         </div>
 
         <div class="column">
