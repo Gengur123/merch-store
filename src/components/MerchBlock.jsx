@@ -1,6 +1,6 @@
 import React from 'react'
 
-function MerchBlock ( { drinkCount, chipCount, hotDogCount }) {
+function MerchBlock ( props, { drinkCount, chipCount, hotDogCount}) {
   return (
     <>
       <h3>Food and Drinks</h3>
@@ -22,6 +22,24 @@ function MerchBlock ( { drinkCount, chipCount, hotDogCount }) {
           <td> { hotDogCount }</td>
         </tr>
       </table>
+
+
+      <table>
+      <thead> 
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Quantity</th>
+        </tr>
+        </thead> 
+            {props.merch.map((v, i) => {
+        return <tr>
+          <th>{v[0]}</th>
+          <th>{v[1]}</th>
+          <th>{v[2]}</th>
+        </tr>
+      })}
+    </table>
     </>
   )
 }

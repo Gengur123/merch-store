@@ -1,11 +1,57 @@
-import React from 'react'
+import React, {useState} from 'react'
 
-function AddMerchBlock () {
+function AddMerchBlock ({addMerch}) {
+
+  const [name, setName] = useState();
+  const [description, setDescription] = useState();
+  const [quantity, setQuantity] = useState();
+
+  const handleSubmit = (event) => {
+    addMerch([name, description, quantity])
+    event.preventDefault();
+  }
+
   return (
-    <div>
-      <h2>Hi</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-    </div>
+    <>
+      <form onSubmit={e => {handleSubmit(e)}}>
+        <label>Name</label>
+        <br />
+        <input 
+          name='name' 
+          type='text'
+          value={name}
+          onChange = {e => setName(e.target.value)}
+        />
+        <br/>
+        <label>Description</label>
+        <br />
+        <input 
+          name='description' 
+          type='text'
+          value={description}
+          onChange = {e => setDescription(e.target.value)}
+        />
+        <br />
+        <label>Quantity</label>
+        <br />
+        <input
+          name='quantity' 
+          type='number'
+          value={quantity}
+          onChange={e => setQuantity(e.target.value)}
+        />
+        <br/>
+        <input 
+          // className='submitButton'
+          type='submit' 
+          value='Add Merch' 
+        />
+      </form>
+    </>
+    // <div>
+    //   <h2>Hi</h2>
+    //     <p></p>
+    // </div>
   )
 }
 
