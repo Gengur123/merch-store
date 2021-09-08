@@ -6,6 +6,7 @@ import CareerBlock from "./components/CareerBlock";
 import ContactBlock from "./components/ContactBlock";
 import LocationBlock from "./components/LocationBlock";
 import MerchBlock from "./components/MerchBlock";
+import MerchListBlock from "./components/MerchListBlock";
 import NavbarBlock from "./components/NavbarBlock";
 // import MerchControl from "./components/MerchControl"
 
@@ -19,8 +20,6 @@ function App () {
     let temps = [...count, temp];
     setCount(temps);
   }
-
-
 
   //   [sets default count, function]
   const [drinkCount, setDrinkCount] = useState("Out of Stock")
@@ -105,7 +104,7 @@ function App () {
         </div>
 
         <div class="column">
-
+          <MerchListBlock merch={count} />
         </div>
       </div>
 
@@ -115,7 +114,7 @@ function App () {
         </div>
 
         <div class="column">
-          <BuyRestockBlock  drinkCountAddOne={addOneDrink} chipCountAddOne={addOneChip} hotDogCountAddOne={addOneHotDog} drinkCountMinusOne={removeOneDrink} chipCountMinusOne={removeOneChip} hotDogCountMinusOne={removeOneHotDog} />
+          <BuyRestockBlock drinkCountAddOne={addOneDrink} chipCountAddOne={addOneChip} hotDogCountAddOne={addOneHotDog} drinkCountMinusOne={removeOneDrink} chipCountMinusOne={removeOneChip} hotDogCountMinusOne={removeOneHotDog} />
         </div>
 
         <div class="column">
