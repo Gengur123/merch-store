@@ -5,16 +5,16 @@ function BuyRestockBlock ({ drinkCountAddOne, chipCountAddOne, hotDogCountAddOne
     <div>
       <table>
         <tr>
-          <button onClick={drinkCountAddOne}>Stock 1 Drink</button>
-          <button onClick={drinkCountMinusOne}>Buy 1 Drink</button>
+          <td><button onClick={drinkCountAddOne}>Stock 1 Drink</button></td>
+          <td><button onClick={drinkCountMinusOne}>Buy 1 Drink</button></td>
         </tr>
         <tr>
-          <button onClick={chipCountAddOne}>Stock 1 Bag of Chips</button>
-          <button onClick={chipCountMinusOne}>Buy 1 Bag of Chips</button>
+          <td><button onClick={chipCountAddOne}>Stock 1 Bag of Chips</button></td>
+          <td><button onClick={chipCountMinusOne}>Buy 1 Bag of Chips</button></td>
         </tr>
         <tr>
-          <button onClick={hotDogCountAddOne}>Stock 1 Hot Dog</button>
-          <button onClick={hotDogCountMinusOne}>Buy 1 Hot Dog</button>
+          <td><button onClick={hotDogCountAddOne}>Stock 1 Hot Dog</button></td>
+          <td><button onClick={hotDogCountMinusOne}>Buy 1 Hot Dog</button></td>
         </tr>
       </table>
     </div>
