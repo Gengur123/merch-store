@@ -15,17 +15,54 @@ import NavbarBlock from "./components/NavbarBlock";
 
 function App () {
 
-  const [count, setCount] = useState([]);
+  // count is merchList, setCount is setMerchList
+  const [merchList, setMerchList] = useState([]);
   const addMerch = (temp) => {
-    let temps = [...count, temp];
-    setCount(temps);
+    let temps = [...merchList, temp];
+    setMerchList(temps);
   }
+
+  const buyOneFromMerch = (index) => {
+    const updatedMerches = [...merchList]
+
+    updatedMerches[index][2] = updatedMerches[index][2] - 1
+
+    if (updatedMerches[index][2] < 0) {
+      updatedMerches[index][2] = 0
+    }
+    
+    setMerchList(updatedMerches)
+  }
+
+  // const clearMerches = () => {
+  //   setCount([])
+  // }
+
+  // const updateMerch = (index, updatedMerch) => {
+  //   count[index] = updatedMerch
+  //   setCount(count)
+  // }
+
+  // const updateMerchName = (index, newName) => {
+  //   count[index].name = newName
+  //   setCount(count)
+  // }
+
+  // const getRidOfDavids = () => {
+  //   const newMerchList = count.filter(count => count.name !== 'David')
+  //   setCount(newMerchList)
+  // }
+
+  // const getRidOfFirst = () => {
+  //   setCount(count.slice(1))
+  // }
 
   //   [sets default count, function]
   const [drinkCount, setDrinkCount] = useState("Out of Stock")
   const [chipCount, setChipCount] = useState("Out of Stock")
   const [hotDogCount, setHotDogCount] = useState("Out of Stock")
   
+
   function addOneDrink(){
     if (drinkCount === "Out of Stock"){
       setDrinkCount(1)
@@ -100,11 +137,11 @@ function App () {
         </div>
 
         <div class="column">
-          <MerchBlock drinkCount={drinkCount} chipCount={chipCount} hotDogCount={hotDogCount} merch={count} />
+          <MerchBlock drinkCount={drinkCount} chipCount={chipCount} hotDogCount={hotDogCount} merch={merchList}  />
         </div>
 
         <div class="column">
-          <MerchListBlock merch={count} />
+          <MerchListBlock merch={merchList} countAddOne={buyOneFromMerch} />
         </div>
       </div>
 

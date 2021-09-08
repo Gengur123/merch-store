@@ -17,6 +17,8 @@ function MerchListBlock(props) {
           <th>{v[0]}</th>
           <th>{v[1]}</th>
           <th>{v[2]}</th>
+          <th><button onClick={() => props.countAddOne(i)}>Buy</button></th>
+          {/* <th><button onClick={drinkCountMinusOne}>Restock</button></th> */}
         </tr>
       })}
     </table>
