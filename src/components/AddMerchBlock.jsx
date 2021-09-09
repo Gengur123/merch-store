@@ -20,6 +20,7 @@ function AddMerchBlock ({addMerch}) {
           name='name' 
           type='text'
           value={name}
+          required
           onChange = {e => setName(e.target.value)}
         />
         <br/>
@@ -29,6 +30,7 @@ function AddMerchBlock ({addMerch}) {
           name='description' 
           type='text'
           value={description}
+          required
           onChange = {e => setDescription(e.target.value)}
         />
         <br />
@@ -37,21 +39,18 @@ function AddMerchBlock ({addMerch}) {
         <input
           name='quantity' 
           type='number'
+          min='0'
           value={quantity}
+          required
           onChange={e => setQuantity(e.target.value)}
         />
         <br/>
         <input 
-          // className='submitButton'
           type='submit' 
           value='Add Merch' 
         />
       </form>
     </>
-    // <div>
-    //   <h2>Hi</h2>
-    //     <p></p>
-    // </div>
   )
 }
 

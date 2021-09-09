@@ -1,6 +1,6 @@
 import React from 'react'
 
-function MerchBlock ({ drinkCount, chipCount, hotDogCount}) {
+function MerchBlock ( {drinkCount, chipCount, hotDogCount} ) {
   return (
     <>
       <h3>Food and Drinks</h3>

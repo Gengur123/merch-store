@@ -18,7 +18,8 @@ function MerchListBlock(props) {
           <th>{v[1]}</th>
           <th>{v[2]}</th>
           <th><button onClick={() => props.countAddOne(i)}>Buy</button></th>
-          {/* <th><button onClick={drinkCountMinusOne}>Restock</button></th> */}
+          <th><button onClick={() => props.countMinusOne(i)}>Restock</button></th>
+          <th><button onClick={() => props.removeMerch(i)}>Delete</button></th>
         </tr>
       })}
     </table>

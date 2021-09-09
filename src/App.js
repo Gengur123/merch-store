@@ -8,30 +8,40 @@ import LocationBlock from "./components/LocationBlock";
 import MerchBlock from "./components/MerchBlock";
 import MerchListBlock from "./components/MerchListBlock";
 import NavbarBlock from "./components/NavbarBlock";
-// import MerchControl from "./components/MerchControl"
-
-
-
 
 function App () {
 
-  // count is merchList, setCount is setMerchList
   const [merchList, setMerchList] = useState([]);
-  const addMerch = (temp) => {
-    let temps = [...merchList, temp];
-    setMerchList(temps);
+
+  const addMerch = (merch) => {
+    let merchLists = [...merchList, merch];
+    setMerchList(merchLists);
   }
 
   const buyOneFromMerch = (index) => {
-    const updatedMerches = [...merchList]
-
-    updatedMerches[index][2] = updatedMerches[index][2] - 1
-
-    if (updatedMerches[index][2] < 0) {
-      updatedMerches[index][2] = 0
+    const updatedMerches = [...merchList];
+    if (updatedMerches[index][2] < 1 || updatedMerches[index][2] === "Out of Stock") {
+      updatedMerches[index][2] = "Out of Stock"
+    } else {
+      updatedMerches[index][2] = updatedMerches[index][2] - 1
     }
-    
-    setMerchList(updatedMerches)
+    setMerchList(updatedMerches);
+  }
+
+  const addOneToMerch = (index) => {
+    const updatedMerches = [...merchList];
+    if (updatedMerches[index][2] === "Out of Stock") {
+      updatedMerches[index][2] = 1
+    } else {
+      updatedMerches[index][2]++
+    }
+    setMerchList(updatedMerches);
+  }
+
+  const deleteMerch = (index) => {
+    const updatedMerches = [...merchList];
+    const newMerchList = updatedMerches.filter(m => m !== updatedMerches[index])
+    setMerchList(newMerchList)
   }
 
   // const clearMerches = () => {
@@ -58,10 +68,10 @@ function App () {
   // }
 
   //   [sets default count, function]
+
   const [drinkCount, setDrinkCount] = useState("Out of Stock")
   const [chipCount, setChipCount] = useState("Out of Stock")
   const [hotDogCount, setHotDogCount] = useState("Out of Stock")
-  
 
   function addOneDrink(){
     if (drinkCount === "Out of Stock"){
@@ -141,7 +151,7 @@ function App () {
         </div>
 
         <div class="column">
-          <MerchListBlock merch={merchList} countAddOne={buyOneFromMerch} />
+          <MerchListBlock merch={merchList} countAddOne={buyOneFromMerch} countMinusOne={addOneToMerch} removeMerch={deleteMerch} />
         </div>
       </div>
 
